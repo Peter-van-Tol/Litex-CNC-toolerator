@@ -1,0 +1,39 @@
+{
+    "board_name": "test_PWM_GPIO",
+    "board_type": "5A-75E v6.0",
+    "clock_frequency": 40000000,
+    "ethphy": {
+        "tx_delay": 0
+    },
+    "etherbone": {
+        "ip_address": "10.0.0.10",
+        "mac_address": "0x10e2d5000000"
+    },
+    "modules": [
+        {
+            "module_type": "toolerator",
+            "instances": [
+                {
+                    "tool_count": 6,
+                    "ppr": 48000,
+                    "over_travel": 10,
+                    "stepgen": {
+                        "speed": {
+                            "max_acc": 6400,
+                            "max_vel": 3200
+                        },
+                        "pins": {
+                            "step_pin": "j10:0",
+                            "dir_pin": "j10:1"
+                        },
+                        "timings": {
+                            "steplen": 1900,
+                            "dir_hold_time": 650, 
+                            "dir_setup_time": 650 
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "litexcnc_toolerator"
+version = "0.1.0"
+description = "Turret style tool changer driven by stepper motor"
+authors = ["Peter van Tol <petertgvantol@gmail.com>"]
+license = "GPL2.0"
+readme = "README.rst"
+packages = [{include = "litexcnc_toolerator", from = "src"}]
+homepage = "https://github.com/Peter-van-Tol/LiteX-CNC"
+repository = "https://github.com/Peter-van-Tol/LiteX-CNC"
+documentation = "https://litex-cnc.readthedocs.io/en/latest/"
+keywords = [
+    "FPGA",
+    "CNC",
+    "CNC-controller",
+    "CNC-machine",
+    "linuxcnc",
+    "linuxcnc-FPGA",
+    "litex",
+    "litecnc"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Environment :: Other Environment",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Natural Language :: English",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Other",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Software Development :: Code Generators",
+    "Topic :: System :: Hardware :: Hardware Drivers"
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+pydantic = "^1.10.2"
+litexcnc = {git = "https://github.com/Peter-van-Tol/LiteX-CNC", rev = "11-add-external-extensions-to-litexcnc", extras = ["cli"]}
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "^5.3.0"
+sphinx-rtd-theme = "^1.1.1"
+
+[tool.poetry.plugins."litexcnc.modules"]
+toolerator = "litexcnc_toolerator.firmware.toolerator"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
