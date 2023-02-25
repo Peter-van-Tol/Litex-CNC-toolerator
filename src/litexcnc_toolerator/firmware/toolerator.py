@@ -294,7 +294,7 @@ class TooleratorModule(Module, AutoDoc):
             setattr(
                 mmio,
                 f'toolerator_{index}_data',
-                CSRStatus(
+                CSRStorage(
                     fields=[
                         CSRField("tool_number", size=8, offset=0, description="The requested tool."),
                         CSRField("tool_change", size=1, offset=8, description="Indication that tool change is requested."),
