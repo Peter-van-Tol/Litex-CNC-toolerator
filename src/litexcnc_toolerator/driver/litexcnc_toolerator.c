@@ -182,6 +182,7 @@ size_t litexcnc_toolerator_init(litexcnc_module_instance_t **module, litexcnc_t 
         LITEXCNC_CREATE_HAL_PIN("error", bit, HAL_OUT, &(instance->hal.pin.error));
         LITEXCNC_CREATE_HAL_PIN("homing", bit, HAL_OUT, &(instance->hal.pin.homing));
         LITEXCNC_CREATE_HAL_PIN("homed", bit, HAL_OUT, &(instance->hal.pin.homed));
+        LITEXCNC_CREATE_HAL_PIN("enable", bit, HAL_IN, &(instance->hal.pin.enable));
         LITEXCNC_CREATE_HAL_PIN("tool-change", bit, HAL_IN, &(instance->hal.pin.tool_change));
         LITEXCNC_CREATE_HAL_PIN("tool-changed", bit, HAL_OUT, &(instance->hal.pin.tool_changed));
         LITEXCNC_CREATE_HAL_PIN("tool-number", u32, HAL_IN, &(instance->hal.pin.tool_number));
