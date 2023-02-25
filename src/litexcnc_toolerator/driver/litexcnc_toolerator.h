@@ -148,10 +148,10 @@ typedef struct {
 // WRITE DATA
 #pragma pack(push,4)
 typedef struct {
-    uint8_t tool_number;
-    uint8_t tool_change;
-    uint8_t enable;
     uint8_t padding;
+    uint8_t enable;
+    uint8_t tool_change;
+    uint8_t tool_number;
 } litexcnc_toolerator_instance_write_data_t;
 #pragma pack(pop)
 
@@ -159,10 +159,10 @@ typedef struct {
 // - instance data
 #pragma pack(push,4)
 typedef struct {
-    uint8_t status;
-    uint8_t homed;
-    uint8_t tool_number;
     uint8_t padding;
+    uint8_t tool_number;
+    uint8_t homed;
+    uint8_t status;
 } litexcnc_toolerator_instance_read_data_t;
 #pragma pack(pop)
 
