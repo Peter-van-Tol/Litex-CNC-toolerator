@@ -117,6 +117,7 @@ size_t required_config_buffer(void *module) {
 size_t required_write_buffer(void *module) {
     static litexcnc_toolerator_t *toolerator_module;
     toolerator_module = (litexcnc_toolerator_t *) module;
+    LITEXCNC_ERR_NO_DEVICE("Toolerator buffer %02X!\n", toolerator_module->num_instances * sizeof(litexcnc_toolerator_instance_write_data_t));
     return toolerator_module->num_instances * sizeof(litexcnc_toolerator_instance_write_data_t);
 }
 
@@ -219,24 +220,29 @@ int litexcnc_toolerator_prepare_write(void *module, uint8_t **data, int period) 
     // - module level
     
     // - instance level
+    LITEXCNC_ERR_NO_DEVICE("Start write!\n");
     for (size_t i=0; i<toolerator->num_instances; i++) {
         // Get toolerator to the stepgen instance
         static litexcnc_toolerator_instance_t *instance;
         instance = &(toolerator->instances[i]);
+        LITEXCNC_ERR_NO_DEVICE("Get instance!\n");
 
         // Create an instance of the data to be copied to the FPGA
         litexcnc_toolerator_instance_write_data_t instance_data;
         instance_data.enable = *(instance->hal.pin.enable) ? 1 : 0;
         instance_data.tool_change = *(instance->hal.pin.tool_change) ? 1 : 0;
         instance_data.tool_number = *(instance->hal.pin.tool_number) % instance->hal.param.tool_count;
+        LITEXCNC_ERR_NO_DEVICE("Set data!\n");
 
         // Write the data to the FPGA
         memcpy(*data, &instance_data, sizeof(litexcnc_toolerator_instance_write_data_t));
         *data += sizeof(litexcnc_toolerator_instance_write_data_t);
+        LITEXCNC_ERR_NO_DEVICE("Set data!\n");
     }
 
     // Move the pointer to the end of the configuration data. This aims at preventing
     // any mis-alignment of data.
+    LITEXCNC_ERR_NO_DEVICE("Toolerator buffer %02X!\n", required_write_buffer(module));
     *data = data_start + required_write_buffer(module);
 
     // Return success
