@@ -232,7 +232,7 @@ int litexcnc_toolerator_prepare_write(void *module, uint8_t **data, int period) 
         LITEXCNC_ERR_NO_DEVICE("Instance data created!\n");
         // instance_data.enable = *(instance->hal.pin.enable) ? 1 : 0;
         LITEXCNC_ERR_NO_DEVICE("Enable written!\n");
-        // instance_data.tool_change = *(instance->hal.pin.tool_change) ? 1 : 0;
+        instance_data.tool_change = *(instance->hal.pin.tool_change) ? 1 : 0;
         LITEXCNC_ERR_NO_DEVICE("Tool change written!\n");
         LITEXCNC_ERR_NO_DEVICE("Tool count %02X!\n", instance->hal.param.tool_count);
         instance_data.tool_number = *(instance->hal.pin.tool_number) % instance->hal.param.tool_count;
