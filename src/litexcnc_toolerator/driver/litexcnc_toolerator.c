@@ -230,7 +230,7 @@ int litexcnc_toolerator_prepare_write(void *module, uint8_t **data, int period) 
         // Create an instance of the data to be copied to the FPGA
         litexcnc_toolerator_instance_write_data_t instance_data;
         LITEXCNC_ERR_NO_DEVICE("Instance data created!\n");
-        // instance_data.enable = *(instance->hal.pin.enable) ? 1 : 0;
+        instance_data.enable = *(instance->hal.pin.enable) ? 1 : 0;
         LITEXCNC_ERR_NO_DEVICE("Enable written!\n");
         instance_data.tool_change = *(instance->hal.pin.tool_change) ? 1 : 0;
         LITEXCNC_ERR_NO_DEVICE("Tool change written!\n");
