@@ -190,11 +190,10 @@ class TooleratorModuleConfig(ModuleBaseModel):
         # Create the config
         mmio.toolerator_config_data =  CSRStatus(
             fields=[
-                CSRField("instances", size=8, offset=0, description="The requested tool."),
-                CSRField("max_tools1", size=8, offset=8, description="The requested tool - instance 0.", reset=tc0),
-                CSRField("max_tools2", size=8, offset=16, description="The requested tool - instance 1.", reset=tc1),
-                CSRField("max_tools3", size=8, offset=24, description="The requested tool - instance 2.", reset=tc2),
+                CSRField("max_tools3", size=8, offset=0,  description="The requested tool - instance 2.", reset=tc2),
+                CSRField("max_tools2", size=8, offset=8,  description="The requested tool - instance 1.", reset=tc1),
+                CSRField("max_tools1", size=8, offset=16, description="The requested tool - instance 0.", reset=tc0),
+                CSRField("instances", size=8,  offset=24, description="The requested tool.", reset=len(self.instances)),
             ],
-            reset=len(self.instances),
             description=f"The config of the toolerator module."
         )
