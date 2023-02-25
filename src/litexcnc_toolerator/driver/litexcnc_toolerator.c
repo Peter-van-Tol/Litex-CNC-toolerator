@@ -117,7 +117,6 @@ size_t required_config_buffer(void *module) {
 size_t required_write_buffer(void *module) {
     static litexcnc_toolerator_t *toolerator_module;
     toolerator_module = (litexcnc_toolerator_t *) module;
-    LITEXCNC_ERR_NO_DEVICE("Toolerator buffer %02X!\n", toolerator_module->num_instances * sizeof(litexcnc_toolerator_instance_write_data_t));
     return toolerator_module->num_instances * sizeof(litexcnc_toolerator_instance_write_data_t);
 }
 
