@@ -45,6 +45,9 @@ litexcnc = {git = "https://github.com/Peter-van-Tol/LiteX-CNC", rev = "11-add-ex
 sphinx = "^5.3.0"
 sphinx-rtd-theme = "^1.1.1"
 
+[tool.poetry.plugins."litexcnc.driver_files"]
+toolerator = "litexcnc_toolerator.driver"
+
 [tool.poetry.plugins."litexcnc.modules"]
 toolerator = "litexcnc_toolerator.config.toolerator"
 
